@@ -3,7 +3,7 @@
 # @author abhijithvijayan <abhijithvijayan.in>
 
 GHOST_URL="localhost:2368/"
-OUTDIR=static
+OUTDIR=docs
 
 setup() {
 		echo ' -------------------- INFORMATION NEEDED -------------------- '
@@ -21,8 +21,8 @@ setup() {
 
 		find $OUTDIR -name *.html -type f -exec sed -i '''s#http://localhost:2368#'$gh_username'.github.io/'$gh_repo'#g' {} \;
 
-		cd $OUTDIR/
-		echo 'Got into static folder via :cd:'
+		cd $OUTDIR
+		echo 'Got into docs folder via :cd:'
 		echo 'Present working directory is:' 
 		pwd
 		git init
@@ -74,8 +74,8 @@ update() {
 		echo '[INFO] Deploying to your Github repository...'
 
 		# Commiting changes
-		cd $OUTDIR/
-		echo '[INFO] Got into static folder via :cd:'
+		cd $OUTDIR
+		echo '[INFO] Got into docs folder via :cd:'
 		echo '[INFO] Present working directory is:' 
 		pwd
 		git add .
@@ -86,8 +86,8 @@ update() {
 # entry point
 build() {
 		mkdir $OUTDIR # this might fail when folder exist
-		cd $OUTDIR/
-		echo 'Got into static folder via :cd:'
+		cd $OUTDIR
+		echo 'Got into docs folder via :cd:'
 		repo_status="$(git status)"
 		case "fatal" in
   			*"$repo_status"*)
