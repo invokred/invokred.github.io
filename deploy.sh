@@ -79,6 +79,7 @@ update() {
 		echo '[INFO] Present working directory is:' 
 		pwd
 		git add .
+		git status
 		git commit -m "Update on the website at $(date)"
 		git push origin master:master master:gh-pages -f
 }
